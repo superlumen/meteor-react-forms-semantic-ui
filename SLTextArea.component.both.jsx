@@ -46,8 +46,7 @@ SLTextArea = React.createClass({
                 <textarea
                     {...this.props.attributes}
                     onChange={this.props.handleChange.bind(this)} 
-                    value={this.state.inputValue}
-                ></textarea>
+                    value={this.state.inputValue} />
                 {this.renderErrors()}
             </div>
         );
