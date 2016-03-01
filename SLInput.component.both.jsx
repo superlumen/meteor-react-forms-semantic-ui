@@ -38,8 +38,6 @@ SLInput = React.createClass({
     },
 
     render() {
-        console.log("Hi!", this);
-
         return (
             <div className="field">
                 {this.renderLabel()}
