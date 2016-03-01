@@ -17,8 +17,10 @@ Package.onUse(function(api) {
   api.use('react');
 
   api.addFiles('SLInput.component.both.jsx');
+  api.addFiles('SLTextArea.component.both.jsx');
 
   api.export('SLInput');
+  api.export('SLTextArea');
 });
 
 // Package.onTest(function(api) {
