@@ -37,6 +37,11 @@ SLInput = React.createClass({
         return (<label>{this.props.label}</label>);
     },
 
+    handleChange(e) {
+        this.setState({inputValue:e.target.value})
+        this.props.handleChange(e)
+    },
+
     render() {
         var fieldCssClasses = _.isEmpty(this.props.errors) ? "field" : "field error";
 
@@ -46,7 +51,7 @@ SLInput = React.createClass({
                 <input
                     type="text" 
                     {...this.props.attributes}
-                    onChange={this.props.handleChange.bind(this)} 
+                    onChange={this.handleChange}
                     value={this.state.inputValue} />
                 {this.renderErrors()}
             </div>
