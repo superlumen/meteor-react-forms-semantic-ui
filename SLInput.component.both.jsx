@@ -38,8 +38,10 @@ SLInput = React.createClass({
     },
 
     render() {
+        var fieldCssClasses = _.isEmpty(this.props.errors) ? "field" : "field error";
+
         return (
-            <div className="field">
+            <div className={fieldCssClasses}>
                 {this.renderLabel()}
                 <input
                     type="text" 
