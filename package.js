@@ -14,7 +14,7 @@ Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
   api.use('ecmascript');
   api.use('es5-shim');
-  api.use('react');
+  api.use('react@0.14.0');
 
   api.addFiles('SLInput.component.both.jsx');
   api.addFiles('SLTextArea.component.both.jsx');
