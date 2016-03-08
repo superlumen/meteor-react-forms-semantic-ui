@@ -2,6 +2,7 @@
 SLInput = React.createClass({
     propTypes: {
         label: React.PropTypes.string,
+        value: React.PropTypes.any,
         initialValue:React.PropTypes.string,
         attributes: React.PropTypes.object,
         errors: React.PropTypes.array,
@@ -14,7 +15,7 @@ SLInput = React.createClass({
             initialValue: "",
             attributes: {},
             errors: [],
-            handleChange: function(event) { 
+            handleChange: function(event) {
                 this.setState({ inputValue: event.target.value });
             },
         };
@@ -24,6 +25,15 @@ SLInput = React.createClass({
         return {
             inputValue: this.props.initialValue
         };
+    },
+
+    inputValue: function() {
+      if (!_.isUndefined(this.props.value)) {
+        return this.props.value
+      }
+      else {
+        return this.state.inputValue
+      }
     },
 
     renderErrors: function() {
@@ -39,7 +49,8 @@ SLInput = React.createClass({
 
     handleChange(e) {
         this.setState({inputValue:e.target.value})
-        this.props.handleChange(e)
+        if (this.props.handleChange)
+          this.props.handleChange(e)
     },
 
     render() {
@@ -48,12 +59,12 @@ SLInput = React.createClass({
         return (
             <div className={fieldCssClasses}>
                 {this.renderLabel()}
+                {this.renderErrors()}
                 <input
-                    type="text" 
+                    type="text"
                     {...this.props.attributes}
                     onChange={this.handleChange}
-                    value={this.state.inputValue} />
-                {this.renderErrors()}
+                    value={this.inputValue()} />
             </div>
         );
     }
