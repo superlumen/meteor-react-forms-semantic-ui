@@ -1,6 +1,6 @@
 Package.describe({
   name: 'superlumen:react-forms-semantic-ui',
-  version: '0.0.3',
+  version: '0.0.4',
   // Brief, one-line summary of the package.
   summary: 'Create simple form fields with react and semantic-ui.',
   // URL to the Git repository containing the source code for this package.
